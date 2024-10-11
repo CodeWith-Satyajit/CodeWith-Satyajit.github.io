@@ -2,7 +2,6 @@
   "name": "codewith-satyajit.github.io",
   "version": "1.0.0",
   "description": "Satyajit BTP Developer ",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

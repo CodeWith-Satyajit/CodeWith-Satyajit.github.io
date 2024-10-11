@@ -1,0 +1,122 @@
+body{
+  margin: inherit;
+}
+ui5-side-navigation {
+    height: 100vh;
+  }
+  
+  
+  
+  ui5-shellbar::part(root) {
+    padding-inline-start: 0.75rem;
+    padding-inline-end: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 0 0.125rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent),
+      0 0.5rem 1rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent);
+  }
+  
+  .tool-layout {
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    background: color-mix(in srgb, black 4%, var(--sapBackgroundColor));
+    display: grid;
+    gap: 0.5rem;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: auto 1fr;
+    
+  }
+  
+  /* ui5-dynamic-page-header{
+  
+    padding: 0%;
+  } */
+  ui5-shellbar {
+    grid-column: 1 / span 2;
+    grid-row: 1 / 2;
+  }
+  
+  /* ui5-card{
+  
+  
+  } */
+  
+  /* .ui5-dynamic-page {
+    height: 100vh;
+    background: white;
+    border-radius: 0.5rem;
+    width: inherit;
+  
+  } */
+  
+  .ui5-dynamic-page {
+    /* width: 100vw; */
+    position: relative;
+   /* background: var(--sapBackgroundColornpm start ); */
+    border-radius: 0.5rem 0.5rem 0 0;
+    overflow-x: hidden;
+    /* box-shadow:
+        0 0 0.125rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent),
+        0 0.5rem 1rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent); */
+  }
+  
+  .FilterBar {
+  
+    position: relative;
+  
+   border-radius: 0.5rem 0.5rem 0 0;
+   /* width: fit-content; */
+  }
+  .Debit {
+    position: relative;
+    /* width: fit-content; */
+   
+   /* // border-radius: 0.5rem 0.5rem 0 0 */
+  }
+  
+  .Credit {
+    position: relative;
+    /* width: fit-content; */
+   
+   /* // border-radius: 0.5rem 0.5rem 0 0 */
+  }
+  .Toolbar{
+  
+    background-color: white;
+  }
+  /* 
+  .editButton{
+    font-family: 'Roboto Helvetica Arial sans-serif' ;
+    font-size: 0.875rem;
+    font-weight: 500;
+  
+  }
+  
+  
+  .saveButton{
+    font: inherit;
+    
+    } */
+    
+  
+  /* .ui5-dynamic-page {
+    height: 100vh;
+    position: relative;
+    background: var(--sapBackgroundColor);
+    border-radius: 0.5rem;
+  
+  } */
+  
+  /* header {
+      
+      height: 100vh;
+      position: relative;
+      background: var(--sapBackgroundColor);
+      border-radius: 0.5rem;
+  
+    
+  } */
+  
+  /* 
+    box-shadow:
+    0 0 0.125rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent),
+    0 0.5rem 1rem 0 color-mix(in srgb, var(--sapContent_ShadowColor) 16%, transparent); */

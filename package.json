@@ -1,0 +1,26 @@
+{
+  "name": "codewith-satyajit.github.io",
+  "version": "1.0.0",
+  "description": "Satyajit BTP Developer ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Satyajit",
+  "license": "ISC",
+  "dependencies": {
+    "@ui5/webcomponents-base": "^2.3.0",
+    "@ui5/webcomponents-fiori": "^2.2.0",
+    "@ui5/webcomponents-icons": "^2.2.0",
+    "@ui5/webcomponents-react": "^2.1.0",
+    "@ui5/webcomponents-react-base": "^2.1.1",
+    "@ui5/webcomponents-react-compat": "^2.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  }
+}

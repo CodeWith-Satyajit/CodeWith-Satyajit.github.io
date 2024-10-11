@@ -8,6 +8,7 @@ import "@ui5/webcomponents-icons/dist/arrow-left";
 import "@ui5/webcomponents-icons/dist/arrow-right";
 import "@ui5/webcomponents-icons/dist/menu";
 import "@ui5/webcomponents-icons/dist/trend-down";
+import logo from "../components/logo.png";
 
 
  const MenuBar = () => {
@@ -16,7 +17,7 @@ import "@ui5/webcomponents-icons/dist/trend-down";
     const navigate = useNavigate();
     return (
         <>
-            <ShellBar className="ui5-shellbar" primary-title="Satyajit N Narkhede" secondaryTitle='SAP BTP Full Stack Developer' logo={<img ></img>}
+            <ShellBar className="ui5-shellbar" primary-title="Satyajit N Narkhede" secondaryTitle='SAP BTP Full Stack Developer' logo={<img src={logo} ></img>}
              startButton={<Button icon="menu" id="toggle" onClick={() => { setOpen(open ? false : true) }}></Button>} >
                 
                 

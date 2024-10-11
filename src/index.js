@@ -1,6 +1,6 @@
 import React,{ lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
-import "./App.css";
+import "../src/index.css";
 import MenuBar from "./components/MenuBar";
 import { createHashRouter, RouterProvider,  Outlet } from "react-router-dom";
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme";

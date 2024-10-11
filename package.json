@@ -1,9 +1,14 @@
 {
   "name": "codewith-satyajit.github.io",
   "version": "1.0.0",
+  "homepage": "https://codewith-satyajit.github.io",
   "description": "Satyajit BTP Developer ",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "author": "Satyajit",
   "license": "ISC",
@@ -14,6 +19,7 @@
     "@ui5/webcomponents-react": "^2.1.0",
     "@ui5/webcomponents-react-base": "^2.1.1",
     "@ui5/webcomponents-react-compat": "^2.1.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
@@ -21,5 +27,17 @@
   "devDependencies": {
     "parcel": "^2.12.0",
     "process": "^0.11.10"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcodewith_satyajit_github_io=self.webpackChunkcodewith_satyajit_github_io||[]).push([[591],{591:(i,t,e)=>{e.r(t),e.d(t,{default:()=>c});e(43);var s=e(579);const c=()=>(0,s.jsxs)("div",{children:[(0,s.jsx)("h1",{children:"Certification Component"}),(0,s.jsx)("p",{children:"This is a simple React component."})]})}}]);
+//# sourceMappingURL=591.890ff4a0.chunk.js.map

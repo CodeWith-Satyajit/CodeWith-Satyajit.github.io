@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcodewith_satyajit_github_io=self.webpackChunkcodewith_satyajit_github_io||[]).push([[66],{66:(i,e,t)=>{t.r(e),t.d(e,{default:()=>h});t(43);var s=t(579);const h=()=>(0,s.jsxs)("div",{children:[(0,s.jsx)("h1",{children:"Mytime Component"}),(0,s.jsx)("p",{children:"This is a simple React component."})]})}}]);
+//# sourceMappingURL=66.d3574e49.chunk.js.map

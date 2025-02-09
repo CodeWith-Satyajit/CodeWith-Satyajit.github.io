@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-    MessageStrip, Timeline, TimelineItem, List, ListItemStandard, FlexBox, AnalyticalTable, ObjectPageHeader, ObjectPageSubSection, ObjectPage, ObjectPageTitle, Toolbar, Text, Link, Label, FormItem, ObjectPageSection, Form, ToolbarButton, ObjectStatus
+    Title, Tag, MessageStrip, Timeline, TimelineItem, List, ListItemStandard, FlexBox, AnalyticalTable, ObjectPageHeader, ObjectPageSubSection, ObjectPage, ObjectPageTitle, Toolbar, Text, Link, Label, FormItem, ObjectPageSection, Form, ToolbarButton, ObjectStatus
 } from '@ui5/webcomponents-react';
 
 import { useLocation, useNavigate } from "react-router-dom";
@@ -101,29 +101,22 @@ const DetailPage = () => {
                     id="Header"
                     titleText={intl.formatMessage({ id: 'Detail.SUMMARY' })}
                 >
-                     <div style={{ padding: '5px' }}></div>
+                    <div style={{ padding: '5px' }}></div>
                     <ObjectStatus showDefaultIcon state={"Positive"}>
-                        SAP UI full stack developer with 12 years of experience
+                        SAP UI/UX Full Stack architect with 12 years of experience
                     </ObjectStatus>
-                    <div style={{ padding: '5px' }}></div>
-                    <ObjectStatus
-                        state={"Positive"}
-                        showDefaultIcon 
 
-                    >
-                        SAP UI full stack developer with 12 years of experience
-                    </ObjectStatus>
                     <div style={{ padding: '5px' }}></div>
                     <ObjectStatus
                         state={"Positive"}
-                        showDefaultIcon 
+                        showDefaultIcon
                     >
                         Expertise in Fiori Full Stack Development involving Fiori & CAPM/ABAP OData
                     </ObjectStatus>
                     <div style={{ padding: '5px' }}></div>
                     <ObjectStatus
                         state={"Positive"}
-                        showDefaultIcon 
+                        showDefaultIcon
                     >
                         Skilled in architecting and delivering Custom Freestyle, Standard Fiori
                         Applications and React JS apps using UI5 web components
@@ -131,14 +124,14 @@ const DetailPage = () => {
                     <div style={{ padding: '5px' }}></div>
                     <ObjectStatus
                         state={"Positive"}
-                        showDefaultIcon 
+                        showDefaultIcon
                     >
                         Successfully completed 4 End-to-End S4 HANA Implementations with Side-by-Side Extensibility
                     </ObjectStatus>
                     <div style={{ padding: '5px' }}></div>
                     <ObjectStatus
                         state={"Positive"}
-                        showDefaultIcon 
+                        showDefaultIcon
                     >
                         Strong experience in Fiori developments across On-Premise, Cloud & Hybrid
                         landscapes
@@ -149,107 +142,88 @@ const DetailPage = () => {
                     aria-label={intl.formatMessage({ id: 'Detail.SKILLS' })}
                     id="Items"
                     titleText={intl.formatMessage({ id: 'Detail.SKILLS' })} >
+                    <div>
+                        Technologies
 
-                    <AnalyticalTable
-                        columns={[
+                    </div>
 
-                            {
-                                Header: ObjectNO,
-                                accessor: 'rinObjectId',
-                                autoResizable: false,
-                                headerTooltip: ObjectNO,
-                                width: 90,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: DocDate,
-                                accessor: 'documentDate',
-                                autoResizable: false,
-                                headerTooltip: DocDate,
-                                width: 110,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: TrnTyp,
-                                accessor: 'transactionType',
-                                autoResizable: false,
-                                headerTooltip: TrnTyp,
-                                width: 100,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: ProcStatus,
-                                accessor: 'objStatus',
-                                autoResizable: false,
-                                headerTooltip: ProcStatus,
-                                width: 150,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: EPAID,
-                                accessor: 'transactionPartnerOrgId',
-                                autoResizable: false,
-                                headerTooltip: EPAID,
-                                width: 100,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: RegQty,
-                                accessor: 'regulationQuantity',
-                                autoResizable: false,
-                                headerTooltip: RegQty,
-                                width: 100,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: RetQty,
-                                accessor: 'retiredRINQty',
-                                autoResizable: false,
-                                headerTooltip: RetQty,
-                                width: 100,
-                                disableGroupBy: true
-                            },
-                            {
-                                Header: FuelVOL,
-                                accessor: 'fuelQuantity',
-                                autoResizable: false,
-                                headerTooltip: FuelVOL,
-                                width: 100,
-                                disableGroupBy: true
-                            },
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        FIORI
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        SAPUI5
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        ABAP
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        CAPM(NodeJS)
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        GIT
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        CI/CD
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Cloud Foundry
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Kyma-kubernetes
+                    </Tag><div></div>
+                    <div>
+                        Power Skills
 
-                            {
-                                Header: TYPCODE,
-                                accessor: 'itemType',
-                                autoResizable: false,
-                                headerTooltip: TYPCODE,
-                                width: 200,
-                                disableGroupBy: true
-                            }
+                    </div>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Team Lead
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Coach
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Project Management
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Active Listener
 
+                    </Tag>
+                    <div></div>
+                    <div>
+                        Exploring On
 
-                        ]}
-                        data={items}
-                        filterable
-                        groupBy={[]}
-                        groupable
-                        infiniteScroll
-                        loading={loading}
-                        minRows={9}
-                        overscanCountHorizontal={5}
-                        scaleWidthMode="Default"
-                        selectionBehavior="Row"
-                        selectionMode="None"
-                        alternateRowColor={true}
-                        sortable
-                        subRowsKey="subRows"
-                        visibleRowCountMode="Fixed"
-                        visibleRows={9}
-                        withRowHighlight
-                        noDataText={intl.formatMessage({ id: 'Detail.MSG001' })}
+                    </div>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        ReactJS
+
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        UI5-WebComponents
+
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Material UI Components
+
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        BTP Process Automation
+
+                    </Tag>
+                    <div></div>
+                    <div>
+                        Methodology
+
+                    </div>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Agile
+
+                    </Tag>
+                    <Tag hideStateIcon style={{ padding: '2px' }}>
+                        Waterfall
 
 
-                    />
+                    </Tag>
+
 
                 </ObjectPageSection>
                 <ObjectPageSection
@@ -356,12 +330,7 @@ const DetailPage = () => {
                     titleText={intl.formatMessage({ id: 'Detail.EDUCATION' })} >
 
                 </ObjectPageSection>
-                <ObjectPageSection
-                    aria-label={intl.formatMessage({ id: 'Detail.CERTIFICATION' })}
-                    id="Certification"
-                    titleText={intl.formatMessage({ id: 'Detail.CERTIFICATION' })} >
 
-                </ObjectPageSection>
 
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.LANG' })}

@@ -24,7 +24,7 @@ import {useIntl} from 'react-intl';
     return (
         <>
         
-            <ShellBar className="ui5-shellbar"  logo={<img alt='SAP Certified'  src="https://sap.github.io/ui5-webcomponents/images/sap-logo-svg.svg"></img>}
+            <ShellBar className="ui5-shellbar" logo={<img alt='SAP Certified'  src="https://sap.github.io/ui5-webcomponents/images/sap-logo-svg.svg"></img>}
              
              primaryTitle="Certified"
              startButton={<Button icon="menu" id="toggle" onClick={() => { setOpen(open ? false : true) }}></Button>} >
@@ -34,11 +34,11 @@ import {useIntl} from 'react-intl';
 
             <SideNavigation className="ui5-side-navigation" collapsed={open}>
 
-                <SideNavigationItem text={intl.formatMessage({id: 'MenuBar.DEBIT'})} icon="arrow-right" selected onClick={()=>{  navigate("/debit");}}></SideNavigationItem> 
+                <SideNavigationItem text="" icon="arrow-right" selected onClick={()=>{  navigate("/debit");}}></SideNavigationItem> 
 
-                <SideNavigationItem text={intl.formatMessage({id: 'MenuBar.CREDIT'})} icon="arrow-left" onClick={()=>{navigate("/credit");}}></SideNavigationItem> 
+                <SideNavigationItem text="" icon="arrow-left" onClick={()=>{navigate("/credit");}}></SideNavigationItem> 
 
-              <SideNavigationItem text={intl.formatMessage({id: 'MenuBar.RETIREMENTOBJECT'})} icon="trend-down" onClick={()=>{navigate("/history");}}></SideNavigationItem>
+              <SideNavigationItem text="" icon="trend-down" onClick={()=>{navigate("/history");}}></SideNavigationItem>
 
             </SideNavigation>
         </>

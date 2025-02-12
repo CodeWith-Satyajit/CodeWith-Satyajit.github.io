@@ -36,7 +36,7 @@ const AppLayout = () => {
       <div className="tool-layout">
         <MenuBar />
         <div className="ui5-dynamic-page">
-          <Outlet />
+        <DetailPagePage />
         </div>
       </div>
     </ThemeProvider>

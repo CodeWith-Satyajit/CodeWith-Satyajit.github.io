@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import {
-     RatingIndicator, NotificationList, NotificationListItem, Title, Tag, MessageStrip, Timeline, TimelineItem, List, ListItemStandard, FlexBox, AnalyticalTable, ObjectPageHeader, ObjectPageSubSection, ObjectPage, ObjectPageTitle, Toolbar, Text, Link, Label, FormItem, ObjectPageSection, Form, ToolbarButton, ObjectStatus
+    RatingIndicator, NotificationList, NotificationListItem, Title, Tag, MessageStrip, Timeline, TimelineItem, List, ListItemStandard, FlexBox, AnalyticalTable, ObjectPageHeader, ObjectPageSubSection, ObjectPage, ObjectPageTitle, Toolbar, Text, Link, Label, FormItem, ObjectPageSection, Form, ToolbarButton, ObjectStatus
 } from '@ui5/webcomponents-react';
 
 
 import { useLocation, useNavigate } from "react-router-dom";
 
-import {PieChart}from '@ui5/webcomponents-react-charts';
+import { PieChart } from '@ui5/webcomponents-react-charts';
 
 import axios from "axios";
 import { useIntl } from 'react-intl';
 import Image from "../components/Image.jfif";
 import "@ui5/webcomponents-icons/dist/calendar";
+import { eventBus } from "./eventBus";
 
 const DetailPage = () => {
     const [loading, setLoading] = useState(false);
@@ -25,6 +26,7 @@ const DetailPage = () => {
     const { statusDesc } = location.state || {};
     const { regulationGoodsMovementDocumentNumber } = location.state || {};
     const { internalComments } = location.state || {};
+    const [selectedSection, setSelectedSection] = useState(0);
 
 
 
@@ -68,10 +70,16 @@ const DetailPage = () => {
     };
 
 
-    useEffect(() => {
-
-        getItems();
-    }, []);
+       useEffect(() => {
+           eventBus.on("Tab", (data) => {
+               console.log(data);
+               setSelectedSection(data.id)
+           });
+   
+           return () => {
+               eventBus.off("Tab");
+           };
+       }, []);
 
     const ObjectNO = intl.formatMessage({ id: 'Detail.OBJECTNO' });
     const DocDate = intl.formatMessage({ id: 'Detail.DOCDATE' });
@@ -82,7 +90,12 @@ const DetailPage = () => {
     const RetQty = intl.formatMessage({ id: 'Detail.RETQTY' });
     const FuelVOL = intl.formatMessage({ id: 'Detail.FUELVOL' });
     const TYPCODE = intl.formatMessage({ id: 'Detail.TYPCODE' });
+    const onSelectedSectionChange = (e) => {
 
+        eventBus.emit("Scroll", {"id":e.detail.selectedSectionId});
+        console.log(e.detail.selectedSectionId);
+
+    }
 
 
     return (
@@ -97,11 +110,13 @@ const DetailPage = () => {
                     height: '91vh'
                 }}
                 titleArea={<ObjectPageTitle actionsBar={<Toolbar design="Transparent"></Toolbar>} header="Satyajit N Narkhede" subHeader="SAP BTP Architect | Fiori | CAPM | ReactJS "><ObjectStatus state="Positive">#OPENTOWORK</ObjectStatus></ObjectPageTitle>}
-headerPinned
+                headerPinned
+                selectedSectionId={selectedSection}
+                onSelectedSectionChange={onSelectedSectionChange}
             >
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.SUMMARY' })}
-                    id="Header"
+                    id="1"
                     titleText={intl.formatMessage({ id: 'Detail.SUMMARY' })}
                 >
                     <div style={{ padding: '5px' }}></div>
@@ -143,7 +158,7 @@ headerPinned
                 </ObjectPageSection>
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.SKILLS' })}
-                    id="Items"
+                    id="2"
                     titleText={intl.formatMessage({ id: 'Detail.SKILLS' })} >
                     <div>
                         Technologies
@@ -231,55 +246,55 @@ headerPinned
                 </ObjectPageSection>
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.CERTIFICATIONS' })}
-                    id="Certifications"
+                    id="3"
                     titleText={intl.formatMessage({ id: 'Detail.CERTIFICATIONS' })} >
-<NotificationList>
+                    <NotificationList>
 
-<NotificationListItem
-    footnotes={<><Label>Issued by SAP on Sep,2023
-    </Label></>}
-    importance="Standard"
-    titleText="SAP Certified Development Associate  SAP BT
+                        <NotificationListItem
+                            footnotes={<><Label>Issued by SAP on Sep,2023
+                            </Label></>}
+                            importance="Standard"
+                            titleText="SAP Certified Development Associate  SAP BT
 Extensions with SAP Cloud Application
 Programming Model
 "
-    wrappingType="Normal"
->
+                            wrappingType="Normal"
+                        >
 
-</NotificationListItem>
+                        </NotificationListItem>
 
-<NotificationListItem
-    footnotes={<><Label>Issued by SAP on Nov, 2023
+                        <NotificationListItem
+                            footnotes={<><Label>Issued by SAP on Nov, 2023
 
-    </Label></>}
-    importance="Standard"
-    titleText="SAP Certified Development Associate  Side-by-Side Extensibility Based on SAP BTP- Kyma Runtime"
-    wrappingType="Normal"
->
+                            </Label></>}
+                            importance="Standard"
+                            titleText="SAP Certified Development Associate  Side-by-Side Extensibility Based on SAP BTP- Kyma Runtime"
+                            wrappingType="Normal"
+                        >
 
-</NotificationListItem>
+                        </NotificationListItem>
 
-<NotificationListItem
-    footnotes={<><Label>Issued by SAP on Apr,2024
+                        <NotificationListItem
+                            footnotes={<><Label>Issued by SAP on Apr,2024
 
-    </Label></>}
-    importance="Standard"
-    titleText="Creating Applications and Extensions using SAP
+                            </Label></>}
+                            importance="Standard"
+                            titleText="Creating Applications and Extensions using SAP
 Build Code  Record of Achievement
 "
-    wrappingType="Normal"
->
+                            wrappingType="Normal"
+                        >
 
-</NotificationListItem>
+                        </NotificationListItem>
 
-</NotificationList>
+                    </NotificationList>
 
-                        
+
 
                 </ObjectPageSection>
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.WORKHISTORY' })}
-                    id="Workhistory"
+                    id="4"
                     titleText={intl.formatMessage({ id: 'Detail.WORKHISTORY' })} >
 
                     <Timeline >
@@ -359,7 +374,7 @@ Build Code  Record of Achievement
                 </ObjectPageSection>
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.PROJECTS' })}
-                    id="Projects"
+                    id="5"
                     titleText={intl.formatMessage({ id: 'Detail.PROJECTS' })} >
                     <ObjectPageSubSection
                         aria-label={intl.formatMessage({ id: 'Detail.KEYPROJECTS' })}
@@ -479,7 +494,7 @@ Build Code  Record of Achievement
 
                     <ObjectPageSubSection
                         aria-label={intl.formatMessage({ id: 'Detail.PASTPROJECTS' })}
-                        id="Past Projects"
+                        id="99"
                         titleText={intl.formatMessage({ id: 'Detail.PASTPROJECTS' })}
                     >
                         <NotificationList>
@@ -521,47 +536,47 @@ Build Code  Record of Achievement
                 </ObjectPageSection>
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.EDUCATION' })}
-                    id="Education"
+                    id="6"
                     titleText={intl.formatMessage({ id: 'Detail.EDUCATION' })} >
 
-<NotificationList>
+                    <NotificationList>
 
-<NotificationListItem
-    footnotes={<><Label>Mumbai University, India
-    </Label><Label>09/2008 - 05/2012</Label></>}
-    importance="Standard"
-    titleText="Bachelor of Engineering"
-    wrappingType="Normal"
->
-Completed Bachelor of Engineering with First class
-    <br />
-    Stream- Information Technology
-</NotificationListItem>
+                        <NotificationListItem
+                            footnotes={<><Label>Mumbai University, India
+                            </Label><Label>09/2008 - 05/2012</Label></>}
+                            importance="Standard"
+                            titleText="Bachelor of Engineering"
+                            wrappingType="Normal"
+                        >
+                            Completed Bachelor of Engineering with First class
+                            <br />
+                            Stream- Information Technology
+                        </NotificationListItem>
 
-</NotificationList>
+                    </NotificationList>
 
                 </ObjectPageSection>
 
 
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.LANG' })}
-                    id="Lang"
+                    id="7"
                     titleText={intl.formatMessage({ id: 'Detail.LANG' })} >
-                        <br/>
-                      <FlexBox  direction="Row" justifyContent="Start"  wrap="NoWrap" alignItems="Center">
+                    <br />
+                    <FlexBox direction="Row" justifyContent="Start" wrap="NoWrap" alignItems="Center">
                         <Title>English</Title>
-<RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
-<FlexBox  direction="Row" justifyContent="Start"  wrap="NoWrap" alignItems="Center">
+                        <RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
+                    <FlexBox direction="Row" justifyContent="Start" wrap="NoWrap" alignItems="Center">
                         <Title>Marathi</Title>
-<RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
-<FlexBox  direction="Row" justifyContent="Start"  wrap="NoWrap" alignItems="Center">
+                        <RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
+                    <FlexBox direction="Row" justifyContent="Start" wrap="NoWrap" alignItems="Center">
                         <Title>Hindi</Title>
-<RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
+                        <RatingIndicator about='Test' value={5} max={5} readonly={true} ></RatingIndicator></FlexBox>
                 </ObjectPageSection>
 
                 <ObjectPageSection
                     aria-label={intl.formatMessage({ id: 'Detail.MYTIME' })}
-                    id="Mytime"
+                    id="8"
                     titleText={intl.formatMessage({ id: 'Detail.MYTIME' })} >
                     <PieChart
                         dataset={[

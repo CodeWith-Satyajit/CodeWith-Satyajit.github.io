@@ -4,70 +4,25 @@ import {
 } from '@ui5/webcomponents-react';
 
 
-import { useLocation, useNavigate } from "react-router-dom";
 
 import { PieChart } from '@ui5/webcomponents-react-charts';
 
-import axios from "axios";
+
 import { useIntl } from 'react-intl';
 import Image from "../components/Image.jfif";
 import "@ui5/webcomponents-icons/dist/calendar";
 import { eventBus } from "./eventBus";
 
 const DetailPage = () => {
-    const [loading, setLoading] = useState(false);
-    const [items, setItems] = useState([]);
-    const [records, setRecords] = useState(0);
-    const location = useLocation();
-    const { objectId } = location.state || {};
-    const { regulationLogisticsPlant } = location.state || {};
-    const { regulationLogisticsMaterialNumber } = location.state || {};
-    const { Quantity } = location.state || {};
-    const { statusDesc } = location.state || {};
-    const { regulationGoodsMovementDocumentNumber } = location.state || {};
-    const { internalComments } = location.state || {};
+
+
     const [selectedSection, setSelectedSection] = useState(0);
 
 
 
-    const navigate = useNavigate();
-
-    const baseURL = "odata/v4/regulation-compliance-transaction/";
-
-
-    const instance = axios.create({
-        baseURL
-    });
     const intl = useIntl();
 
-    const getItems = async () => {
-        let filterString = "$filter=retireObjectId eq " + objectId + "";
-        let results = [];
 
-        setLoading(true);
-        try {
-            const { data } = await instance.get("/getRetireObjRVORINAllocDetails?" + filterString);
-            results = (data.d?.results || data.d || data.value);
-            results.forEach(element => {
-                element.objStatus = element.processingStatus + '(' + element.objectStatusDesc + ')';
-                if (element.objectType == 'RVO') {
-                    element.itemType = element.rfs2ObligationType + '(' + element.rfs2ObligationTypeDesc + ')';
-                } else if (element.objectType == 'RIN')
-                    element.itemType = element.dCode + '(' + element.dCodeDesc + ')';
-            });
-
-            setItems(results);
-            console.log(results);
-            setLoading(false);
-            setRecords(results.length);
-        } catch (error) {
-            setItems([]);
-            setLoading(false);
-            setRecords(0);
-        }
-
-
-    };
 
 
        useEffect(() => {
@@ -81,15 +36,6 @@ const DetailPage = () => {
            };
        }, []);
 
-    const ObjectNO = intl.formatMessage({ id: 'Detail.OBJECTNO' });
-    const DocDate = intl.formatMessage({ id: 'Detail.DOCDATE' });
-    const TrnTyp = intl.formatMessage({ id: 'Detail.TRNTYP' });
-    const ProcStatus = intl.formatMessage({ id: 'Detail.PROCSTATUS' });
-    const EPAID = intl.formatMessage({ id: 'Detail.EPAID' });
-    const RegQty = intl.formatMessage({ id: 'Detail.REGQTY' });
-    const RetQty = intl.formatMessage({ id: 'Detail.RETQTY' });
-    const FuelVOL = intl.formatMessage({ id: 'Detail.FUELVOL' });
-    const TYPCODE = intl.formatMessage({ id: 'Detail.TYPCODE' });
     const onSelectedSectionChange = (e) => {
 
         eventBus.emit("Scroll", {"id":e.detail.selectedSectionId});

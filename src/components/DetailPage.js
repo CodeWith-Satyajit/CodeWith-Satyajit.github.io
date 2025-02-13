@@ -200,7 +200,7 @@ const DetailPage = () => {
                             footnotes={<><Label>Issued by SAP on Sep,2023
                             </Label></>}
                             importance="Standard"
-                            titleText="SAP Certified Development Associate  SAP BT
+                            titleText="SAP Certified Development Associate  SAP BTP
 Extensions with SAP Cloud Application
 Programming Model
 "

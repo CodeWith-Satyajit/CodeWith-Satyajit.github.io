@@ -1,5 +1,5 @@
 import {
-    ShellBar, Button, SideNavigationItem, SideNavigation
+   Popover, ShellBar, Button, SideNavigationItem, SideNavigation
 } from '@ui5/webcomponents-react';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -38,6 +38,7 @@ const MenuBar = () => {
     const [six, setSix] = useState(false);
     const [seven, setSeven] = useState(false);
     const [eight, setEight] = useState(false);
+    const [popoverIsOpen, setPopoverIsOpen] = useState(false);
 
     const intl = useIntl();
 
@@ -155,11 +156,11 @@ const MenuBar = () => {
     return (
         <>
 
-            <ShellBar className="ui5-shellbar" logo={<img src="https://sap.github.io/ui5-webcomponents/images/sap-logo-svg.svg"></img>}
+            <ShellBar className="ui5-shellbar"  logo={<img src="https://sap.github.io/ui5-webcomponents/images/sap-logo-svg.svg"></img>}
 
                 primaryTitle="Certified"
                 startButton={<Button icon="bullet-text" id="toggle" onClick={() => { setOpen(open ? false : true) }}></Button>} >
-
+                 
 
             </ShellBar>
 
